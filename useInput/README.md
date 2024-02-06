@@ -39,6 +39,6 @@ const App = () => {
 };
 ```
 
-## How It Works
-- **initialValue**: Sets the initial value of the input field.
-- **validator**: An optional function that determines whether the input value should be updated based on custom logic. It should return `true` for valid inputs and `false` for invalid inputs.
+## Arguments
+- **initialValue** (String): Starting value for the input.
+- **validator** (Function): An optional function that checks the input value for validity. It should return true for valid inputs and false for invalid inputs. This function allows you to enforce specific rules for the input value (e.g., length restrictions, character restrictions).
