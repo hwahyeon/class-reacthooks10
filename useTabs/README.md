@@ -24,25 +24,10 @@ const content = [
 Import and use the `useTabs` hook within your component to manage the tabs.
 
 ```js
-import React from 'react';
-import { useState } from "react";
-
-// Define the useTabs hook here or import it if it's defined in another file
-const useTabs = (initialTab, allTabs) => {
-  const [currentIndex, setCurrentIndex] = useState(initialTab);
-  
-  if (!allTabs || !Array.isArray(allTabs)) {
-    return;
-  }
-  
-  return {
-    currentItem: allTabs[currentIndex],
-    changeItem: setCurrentIndex
-  };
-};
+import useTabs from "/use-tabs"
 
 // Sample component using the useTabs hook
-const page = () => {
+const App = () => {
   const { currentItem, changeItem } = useTabs(0, content);
   
   return (
@@ -55,11 +40,12 @@ const page = () => {
   );
 };
 
-export default page;
+export default App;
 ```
 
-## How It Works
-- **Initialization**: The `useTabs` hook takes two arguments: the index of the initial tab (initialTab) and an array of tab objects (allTabs).
-- **State Management**: It uses the useState hook to keep track of the current active tab index.
-- **Flexibility**: The hook checks if the allTabs array is valid and returns the current item's content and a function to change the active tab.
-- **Rendering**: In your component, map through the content array to render tab buttons. Use the changeItem function to update the current tab on click.
+## Arguments
+- **initialTab** (Number): The index of the initial active tab.
+- **allTabs** (Array): An array of objects, with each object representing a tab. Each object should include:
+  - **tab** (String): The label of the tab.
+  - **content**: The content displayed when the tab is active.
+Ensure `allTabs` is a non-empty array for the hook to function correctly.
