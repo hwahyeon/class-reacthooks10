@@ -8,7 +8,6 @@ Here's how to use the `useTitle` custom hook within your React component:
 
 The hook returns a function that you can use to update the title.
 ```js
-import { useEffect, useState } from "react";
 import useTitle from "/use-title"
 
 const App = () => {
